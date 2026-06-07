@@ -5,19 +5,20 @@
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
 
-  /* Brand & surfaces (premium cream – no white) */
-  --color-ink: #1a1814;
-  --color-ink-muted: #5c5750;
-  --color-surface: #f3f0ea;
-  --color-surface-elevated: #faf7f2;
-  --color-surface-border: #e5e0d8;
-  --color-brand: #c35a1a;
-  --color-brand-hover: #a04a16;
-  --color-brand-muted: #fef4eb;
-  --color-accent: #d4a853;
-  --color-bar: #252220;
-  --color-hero-start: #2d2926;
-  --color-hero-end: #1a1814;
+  /* Brand & surfaces (Premium Mixed Light/Dark Theme) */
+  --color-ink: #1c1917; /* Deep warm stone/charcoal for light beige backgrounds */
+  --color-ink-muted: #57534e; /* Muted stone */
+  --color-surface: #faf7f2; /* Luxury warm light beige/cream */
+  --color-surface-elevated: #ffffff; /* Card background */
+  --color-surface-border: #e6e2da; /* Clean warm border */
+  --color-brand: #e66515; /* Burnt orange */
+  --color-brand-hover: #ff7f30;
+  --color-brand-muted: #fed7aa;
+  --color-accent: #dfb256; /* Metallic gold */
+  --color-accent-hover: #f59e0b;
+  --color-bar: #0d0c0a;
+  --color-hero-start: #1c1917;
+  --color-hero-end: #0c0a09;
 }
 
 /* Base */
@@ -32,18 +33,19 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 600;
   letter-spacing: -0.02em;
+  color: inherit;
 }
 
-/* Subtle background texture */
+/* Subtle background texture with soft golden/orange glow on warm beige */
 .theme-page {
   background-color: var(--color-surface);
   background-image:
-    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(212, 168, 83, 0.08), transparent 50%),
-    radial-gradient(ellipse 80% 60% at 100% 0%, rgba(195, 90, 26, 0.05), transparent 45%),
-    radial-gradient(ellipse 60% 80% at 0% 80%, rgba(212, 168, 83, 0.04), transparent 45%);
+    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(223, 178, 86, 0.08), transparent 60%),
+    radial-gradient(ellipse 80% 60% at 100% 0%, rgba(230, 101, 21, 0.04), transparent 50%),
+    radial-gradient(ellipse 60% 80% at 0% 80%, rgba(223, 178, 86, 0.03), transparent 50%);
 }
 
-/* Section title with gradient underline */
+/* Section title with premium gradient underline */
 .theme-section-title {
   position: relative;
   padding-bottom: 0.6rem;
@@ -54,72 +56,76 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   bottom: 0;
   width: 4rem;
-  height: 4px;
+  height: 3px;
   background: linear-gradient(90deg, var(--color-brand), var(--color-accent));
   border-radius: 2px;
-  box-shadow: 0 1px 2px rgba(195, 90, 26, 0.2);
+  box-shadow: 0 1px 4px rgba(230, 101, 21, 0.3);
 }
 .theme-section-title.text-center::after {
   left: 50%;
   transform: translateX(-50%);
 }
 
-/* Cards – refined shadow and hover */
+/* Cards – premium soft warm shadow and golden hover border */
 .theme-card {
   background: var(--color-surface-elevated);
   border: 1px solid var(--color-surface-border);
   border-radius: 16px;
-  box-shadow: 0 1px 3px rgba(26, 24, 20, 0.04);
-  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+  box-shadow: 0 8px 30px -10px rgba(28, 25, 23, 0.08), 0 0 0 1px rgba(28, 25, 23, 0.01);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 }
 .theme-card:hover {
-  box-shadow: 0 20px 50px -16px rgba(26, 24, 20, 0.14), 0 0 0 1px rgba(212, 168, 83, 0.06);
-  border-color: #d9d3c9;
+  box-shadow: 0 20px 40px -16px rgba(28, 25, 23, 0.12), 0 0 0 1px rgba(223, 178, 86, 0.2);
+  border-color: rgba(223, 178, 86, 0.45);
   transform: translateY(-2px);
 }
 
 /* Buttons – premium feel */
 .theme-btn-primary {
-  background: linear-gradient(180deg, #c35a1a 0%, #a04a16 100%);
+  background: linear-gradient(180deg, #e66515 0%, #c14d05 100%);
   color: #fff;
   font-weight: 600;
   padding: 0.875rem 1.75rem;
   border-radius: 10px;
-  box-shadow: 0 4px 14px rgba(195, 90, 26, 0.35);
+  box-shadow: 0 4px 14px rgba(230, 101, 21, 0.3);
   transition: box-shadow 0.2s ease, transform 0.15s ease, filter 0.2s ease;
+  cursor: pointer;
 }
 .theme-btn-primary:hover {
-  box-shadow: 0 6px 20px rgba(195, 90, 26, 0.4);
-  filter: brightness(1.05);
+  box-shadow: 0 6px 20px rgba(230, 101, 21, 0.45);
+  filter: brightness(1.08);
 }
 .theme-btn-primary:active {
   transform: scale(0.98);
 }
 
+/* Secondary Button adapted for dark sections */
 .theme-btn-secondary {
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   font-weight: 600;
   padding: 0.875rem 1.75rem;
   border-radius: 10px;
   backdrop-filter: blur(8px);
-  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+  cursor: pointer;
 }
 .theme-btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.45);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  box-shadow: 0 0 0 1px rgba(223, 178, 86, 0.15);
 }
 
-/* Hero gradient overlay – reuse on hero sections */
+/* Hero gradient overlay – gold and orange rays */
 .theme-hero-glow {
   background-image:
-    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(212, 168, 83, 0.2), transparent 50%),
-    radial-gradient(ellipse 70% 40% at 80% 60%, rgba(195, 90, 26, 0.08), transparent 40%);
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(223, 178, 86, 0.15), transparent 50%),
+    radial-gradient(ellipse 70% 40% at 80% 60%, rgba(230, 101, 21, 0.06), transparent 45%);
 }
 
-/* Premium surface utilities (no white) */
+/* Premium surface utilities */
 .bg-surface { background-color: var(--color-surface); }
 .bg-surface-elevated { background-color: var(--color-surface-elevated); }
 
