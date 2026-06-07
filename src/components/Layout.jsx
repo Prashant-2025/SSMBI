@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
+import logoImg from '../assets/images/SSMBI_LOGO.png'
 
 const PRODUCTS = [
   'Asbestos Mill Board'
@@ -45,7 +46,7 @@ export default function Layout() {
         <div className="max-w-7xl mx-auto px-4 py-1 lg:py-2">
           <nav className="flex items-center justify-between gap-4">
             <Link to="/" className="text-xl sm:text-2xl font-display flex items-center font-semibold text-stone-800 hover:text-amber-700 transition tracking-tight shrink-0" onClick={closeMenus}>
-              <img src="/src/assets/images/SSMBI_LOGO.png" alt="SSMBI Logo" className="w-10 h-10 md:w-15 md:h-15" />
+              <img src={logoImg} alt="SSMBI Logo" className="w-10 h-10 md:w-15 md:h-15" />
               <span className="text-2xl font-semibold">SSMBI</span>
             </Link>
 
