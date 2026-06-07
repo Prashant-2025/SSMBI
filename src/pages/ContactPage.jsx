@@ -104,11 +104,16 @@ export default function ContactPage() {
         <div className="grid md:grid-cols-2 gap-6 mb-10">
           <div className="theme-card p-5">
             <h2 className="font-display font-semibold text-stone-900 mb-2.5 text-lg">Address</h2>
-            <p className="text-stone-600 text-sm leading-relaxed">
+            <a 
+              href="https://www.google.com/maps/search/?api=1&query=Plot+No+-895M,+khata+No-62,+SUBHANPUR+KHEKRA+BAGHPAT+UTTAR+PRADESH+-+201102"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-stone-650 hover:text-[var(--color-brand)] text-sm leading-relaxed transition-colors block"
+            >
               Plot No -895M, khata No-62,<br />
               SUBHANPUR KHEKRA BAGHPAT,<br />
               UTTAR PRADESH - 201102
-            </p>
+            </a>
           </div>
           <div className="theme-card p-5">
             <h2 className="font-display font-semibold text-stone-900 mb-2.5 text-lg">Phone &amp; Email</h2>

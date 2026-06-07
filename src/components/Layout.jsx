@@ -25,13 +25,18 @@ export default function Layout() {
     {
       id: 'address',
       element: (
-        <div className="w-full text-center px-4 leading-relaxed">
+        <a 
+          href="https://www.google.com/maps/search/?api=1&query=Plot+No+-895M,+khata+No-62,+SUBHANPUR+KHEKRA+BAGHPAT+UTTAR+PRADESH+-+201102"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full text-center px-4 leading-relaxed hover:text-amber-400 transition-colors block"
+        >
           <svg className="w-3.5 h-3.5 text-amber-500 inline mr-1.5 align-middle -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
           <span className="font-bold text-amber-500">Address:</span> Plot No -895M, khata No-62, SUBHANPUR KHEKRA BAGHPAT UTTAR PRADESH - 201102
-        </div>
+        </a>
       )
     },
     {
@@ -91,13 +96,18 @@ export default function Layout() {
       <div className="hidden md:block bg-linear-to-r from-stone-950 to-stone-900 text-stone-400 text-xs lg:text-sm border-b border-stone-800/60 py-2.5">
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between gap-4">
           <div className="text-left">
-            <span className="leading-relaxed inline-block">
+            <a 
+              href="https://www.google.com/maps/search/?api=1&query=Plot+No+-895M,+khata+No-62,+SUBHANPUR+KHEKRA+BAGHPAT+UTTAR+PRADESH+-+201102"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="leading-relaxed inline-block hover:text-amber-400 transition-colors"
+            >
               <svg className="w-3.5 h-3.5 text-amber-500 inline mr-1.5 align-middle -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
               <span className="font-bold text-amber-500">Address:</span> Plot No -895M, khata No-62, SUBHANPUR KHEKRA BAGHPAT UTTAR PRADESH - 201102
-            </span>
+            </a>
           </div>
 
           <div className="flex items-center gap-4">
@@ -330,11 +340,16 @@ export default function Layout() {
             </div>
             <div>
               <h3 className="font-display font-semibold text-stone-100 mb-3 text-lg">Contact Us</h3>
-              <p className="text-sm leading-relaxed mb-3 text-stone-400">
+              <a 
+                href="https://www.google.com/maps/search/?api=1&query=Plot+No+-895M,+khata+No-62,+SUBHANPUR+KHEKRA+BAGHPAT+UTTAR+PRADESH+-+201102"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm leading-relaxed mb-3 text-stone-400 hover:text-amber-400 transition-colors block"
+              >
                 Plot No -895M, khata No-62,<br />
                 SUBHANPUR KHEKRA BAGHPAT,<br />
                 UTTAR PRADESH - 201102
-              </p>
+              </a>
               <p className="text-sm mb-3">
                 <a href="tel:+919411826175" className="block text-amber-400 hover:text-amber-300 transition">+91 9411826175</a>
                 <a href="tel:+919411263924" className="block text-amber-400 hover:text-amber-300 transition">+91 9411263924</a>
