@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import logoImg from '../assets/images/SSMBI_LOGO.png'
 
@@ -19,6 +19,14 @@ export default function Layout() {
   const [openDropdown, setOpenDropdown] = useState(null)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [mobileExpanded, setMobileExpanded] = useState(null) // 'products' | 'international' | 'domestic'
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % 3)
+    }, 4000)
+    return () => clearInterval(timer)
+  }, [])
 
   const closeMenus = () => {
     setOpenDropdown(null)
@@ -26,17 +34,107 @@ export default function Layout() {
     setMobileExpanded(null)
   }
 
+  const topBarSlides = [
+    {
+      id: 'address',
+      element: (
+        <div className="w-full text-center px-4 leading-relaxed">
+          <svg className="w-3.5 h-3.5 text-amber-500 inline mr-1.5 align-middle -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <span className="font-bold text-amber-500">Address:</span> Plot No -895M, khata No-62, SUBHANPUR KHEKRA BAGHPAT UTTAR PRADESH - 201102
+        </div>
+      )
+    },
+    {
+      id: 'phones',
+      element: (
+        <div className="w-full text-center px-4">
+          <span className="flex items-center justify-center gap-2">
+            <a href="tel:+919411826175" className="hover:text-amber-400 transition flex items-center gap-1.5 whitespace-nowrap">
+              <svg className="w-3.5 h-3.5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1.3 1.3 0 01-.321.988l-1.305 1.305a12.933 12.933 0 005.07 5.07l1.305-1.305a1.3 1.3 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <span>+91 9411826175</span>
+            </a>
+            <span className="text-stone-700 select-none">|</span>
+            <a href="tel:+919411263924" className="hover:text-amber-400 transition flex items-center gap-1 whitespace-nowrap">
+              <span>+91 9411263924</span>
+            </a>
+          </span>
+        </div>
+      )
+    },
+    {
+      id: 'email',
+      element: (
+        <div className="w-full text-center px-4">
+          <a href="mailto:shrisaimillboardindustries@gmail.com" className="hover:text-amber-400 transition flex items-center justify-center gap-1.5 truncate max-w-[280px] mx-auto" title="shrisaimillboardindustries@gmail.com">
+            <svg className="w-3.5 h-3.5 text-amber-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span className="truncate">shrisaimillboardindustries@gmail.com</span>
+          </a>
+        </div>
+      )
+    }
+  ]
+
   return (
     <div className="min-h-screen theme-page text-stone-800">
-      {/* Top bar - compact on mobile */}
-      <div className="bg-linear-to-r from-stone-900 to-stone-800 text-stone-300 text-sm border-b border-stone-700/50">
-        <div className="max-w-7xl mx-auto px-4 py-2.5 flex flex-wrap items-center justify-between gap-2">
-          <span className="hidden sm:inline"><span className='font-bold'>Address -</span> Plot No -895M, khata No-62, SUBHANPUR KHEKRA BAGHPAT UTTAR PRADESH - 201102</span>
-          <span className="sm:hidden">Refractory &amp; Lining</span>
-          <div className="flex items-center gap-3 sm:gap-4 shrink-0">
-            <a href="tel:+919411826175" className="hover:text-amber-400 transition whitespace-nowrap">+91 9411826175</a>
-            <a href="tel:+919411263924" className="hover:text-amber-400 transition whitespace-nowrap">+91 9411263924</a>
-            <a href="mailto:shrisaimillboardindustries@gmail.com" className="hover:text-amber-400 transition truncate max-w-[140px] sm:max-w-none" title="shrisaimillboardindustries@gmail.com">shrisaimillboardindustries@gmail.com</a>
+      {/* Mobile Top Bar Marquee (visible below md) */}
+      <div className="md:hidden bg-linear-to-r from-stone-900 to-stone-800 text-stone-300 text-[11px] sm:text-[11px] border-b border-stone-700/50 py-2 flex items-center overflow-hidden relative h-9">
+        <div className="max-w-7xl mx-auto px-4 w-full flex justify-center items-center relative h-full">
+          {topBarSlides.map((slide, index) => (
+            <div
+              key={slide.id}
+              className={`absolute w-full transition-all duration-700 ease-in-out transform flex justify-center items-center ${index === currentSlide
+                  ? 'opacity-100 translate-x-0 pointer-events-auto'
+                  : 'opacity-0 translate-x-4 pointer-events-none'
+                }`}
+            >
+              {slide.element}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop Top Bar (visible md and above) */}
+      <div className="hidden md:block bg-linear-to-r from-stone-900 to-stone-800 text-stone-300 text-xs lg:text-sm border-b border-stone-700/50 py-2.5">
+        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between gap-4">
+          <div className="text-left">
+            <span className="leading-relaxed inline-block">
+              <svg className="w-3.5 h-3.5 text-amber-500 inline mr-1.5 align-middle -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span className="font-bold text-amber-500">Address:</span> Plot No -895M, khata No-62, SUBHANPUR KHEKRA BAGHPAT UTTAR PRADESH - 201102
+            </span>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
+              <a href="tel:+919411826175" className="hover:text-amber-400 transition flex items-center justify-center md:justify-start gap-1 whitespace-nowrap">
+                <svg className="w-3.5 h-3.5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1.3 1.3 0 01-.321.988l-1.305 1.305a12.933 12.933 0 005.07 5.07l1.305-1.305a1.3 1.3 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <span>+91 9411826175</span>
+              </a>
+              <span className="text-stone-700 text-xs select-none">|</span>
+              <a href="tel:+919411263924" className="hover:text-amber-400 transition flex items-center justify-center md:justify-start gap-1 whitespace-nowrap">
+                <span>+91 9411263924</span>
+              </a>
+            </div>
+
+            <span className="text-stone-700 select-none">|</span>
+
+            <a href="mailto:shrisaimillboardindustries@gmail.com" className="hover:text-amber-400 transition flex items-center justify-center md:justify-start gap-1.5 max-w-[280px] sm:max-w-none truncate" title="shrisaimillboardindustries@gmail.com">
+              <svg className="w-3.5 h-3.5 text-amber-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <span className="truncate">shrisaimillboardindustries@gmail.com</span>
+            </a>
           </div>
         </div>
       </div>
