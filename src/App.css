@@ -1,0 +1,26 @@
+@reference "tailwindcss";
+
+.nav-link {
+  @apply px-3.5 py-2.5 rounded-xl text-stone-600 hover:bg-amber-50/90 hover:text-amber-800 transition-all duration-200 text-sm font-medium;
+}
+
+.dropdown {
+  @apply absolute top-full left-0 mt-2 min-w-[220px] border border-stone-200 rounded-2xl py-2 z-50;
+  background-color: var(--color-surface-elevated);
+  box-shadow: 0 24px 48px -12px rgba(26, 24, 20, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.03);
+}
+
+.dropdown-wide {
+  min-width: 200px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.dropdown-item {
+  @apply block px-4 py-2.5 text-sm text-stone-600 hover:bg-amber-50 hover:text-amber-800 transition-colors duration-150;
+}
+
+/* Mobile nav links */
+.nav-link-mobile {
+  @apply block px-4 py-3 rounded-xl text-stone-700 hover:bg-amber-50/90 hover:text-amber-800 transition-all duration-200 text-sm font-medium;
+}

@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@theme {
+  /* Typography */
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+
+  /* Brand & surfaces (premium cream – no white) */
+  --color-ink: #1a1814;
+  --color-ink-muted: #5c5750;
+  --color-surface: #f3f0ea;
+  --color-surface-elevated: #faf7f2;
+  --color-surface-border: #e5e0d8;
+  --color-brand: #c35a1a;
+  --color-brand-hover: #a04a16;
+  --color-brand-muted: #fef4eb;
+  --color-accent: #d4a853;
+  --color-bar: #252220;
+  --color-hero-start: #2d2926;
+  --color-hero-end: #1a1814;
+}
+
+/* Base */
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-surface);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Subtle background texture */
+.theme-page {
+  background-color: var(--color-surface);
+  background-image:
+    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(212, 168, 83, 0.08), transparent 50%),
+    radial-gradient(ellipse 80% 60% at 100% 0%, rgba(195, 90, 26, 0.05), transparent 45%),
+    radial-gradient(ellipse 60% 80% at 0% 80%, rgba(212, 168, 83, 0.04), transparent 45%);
+}
+
+/* Section title with gradient underline */
+.theme-section-title {
+  position: relative;
+  padding-bottom: 0.6rem;
+}
+.theme-section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 4rem;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-brand), var(--color-accent));
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(195, 90, 26, 0.2);
+}
+.theme-section-title.text-center::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Cards – refined shadow and hover */
+.theme-card {
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-surface-border);
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(26, 24, 20, 0.04);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+.theme-card:hover {
+  box-shadow: 0 20px 50px -16px rgba(26, 24, 20, 0.14), 0 0 0 1px rgba(212, 168, 83, 0.06);
+  border-color: #d9d3c9;
+  transform: translateY(-2px);
+}
+
+/* Buttons – premium feel */
+.theme-btn-primary {
+  background: linear-gradient(180deg, #c35a1a 0%, #a04a16 100%);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.875rem 1.75rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(195, 90, 26, 0.35);
+  transition: box-shadow 0.2s ease, transform 0.15s ease, filter 0.2s ease;
+}
+.theme-btn-primary:hover {
+  box-shadow: 0 6px 20px rgba(195, 90, 26, 0.4);
+  filter: brightness(1.05);
+}
+.theme-btn-primary:active {
+  transform: scale(0.98);
+}
+
+.theme-btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-weight: 600;
+  padding: 0.875rem 1.75rem;
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.theme-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Hero gradient overlay – reuse on hero sections */
+.theme-hero-glow {
+  background-image:
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(212, 168, 83, 0.2), transparent 50%),
+    radial-gradient(ellipse 70% 40% at 80% 60%, rgba(195, 90, 26, 0.08), transparent 40%);
+}
+
+/* Premium surface utilities (no white) */
+.bg-surface { background-color: var(--color-surface); }
+.bg-surface-elevated { background-color: var(--color-surface-elevated); }
+
+/* Asbestos millboard spotlight cards — entrance */
+@keyframes product-card-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-card-reveal {
+  opacity: 0;
+  animation: product-card-reveal 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.product-card-reveal-delay-1 {
+  animation-delay: 0.12s;
+}
