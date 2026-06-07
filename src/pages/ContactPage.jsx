@@ -104,8 +104,8 @@ export default function ContactPage() {
         <div className="grid md:grid-cols-2 gap-6 mb-10">
           <div className="theme-card p-5">
             <h2 className="font-display font-semibold text-stone-900 mb-2.5 text-lg">Address</h2>
-            <a 
-              href="https://www.google.com/maps/search/?api=1&query=Plot+No+-895M,+khata+No-62,+SUBHANPUR+KHEKRA+BAGHPAT+UTTAR+PRADESH+-+201102"
+            <a
+              href="https://www.google.com/maps/place/Shri+Sai+Mill+Board+Industries/@28.8244133,77.2455073,17.44z/data=!4m9!1m2!2m1!1sPlot+No+-895M,+khata+No-62,+SUBHANPUR+KHEKRA+BAGHPAT+UTTAR+PRADESH+-+201102!3m5!1s0x390c55909258237f:0xed43c9db90121edb!8m2!3d28.8248803!4d77.2480068!16s%2Fg%2F11ytkp3016?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
               className="text-stone-650 hover:text-[var(--color-brand)] text-sm leading-relaxed transition-colors block"
@@ -132,7 +132,7 @@ export default function ContactPage() {
               Your email client should open with the message. Please click <strong>Send</strong> there to complete your enquiry.
             </div>
           )}
-          
+
           <div className="grid sm:grid-cols-2 gap-5 mb-5">
             <div>
               <label htmlFor="name" className="block text-sm font-semibold text-stone-850 mb-1.5">Name *</label>

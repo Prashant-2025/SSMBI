@@ -25,8 +25,8 @@ export default function Layout() {
     {
       id: 'address',
       element: (
-        <a 
-          href="https://www.google.com/maps/search/?api=1&query=Plot+No+-895M,+khata+No-62,+SUBHANPUR+KHEKRA+BAGHPAT+UTTAR+PRADESH+-+201102"
+        <a
+          href="https://www.google.com/maps/place/Shri+Sai+Mill+Board+Industries/@28.8244133,77.2455073,17.44z/data=!4m9!1m2!2m1!1sPlot+No+-895M,+khata+No-62,+SUBHANPUR+KHEKRA+BAGHPAT+UTTAR+PRADESH+-+201102!3m5!1s0x390c55909258237f:0xed43c9db90121edb!8m2!3d28.8248803!4d77.2480068!16s%2Fg%2F11ytkp3016?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D"
           target="_blank"
           rel="noopener noreferrer"
           className="w-full text-center px-4 leading-relaxed hover:text-amber-400 transition-colors block"
@@ -96,7 +96,7 @@ export default function Layout() {
       <div className="hidden md:block bg-linear-to-r from-stone-950 to-stone-900 text-stone-400 text-xs lg:text-sm border-b border-stone-800/60 py-2.5">
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between gap-4">
           <div className="text-left">
-            <a 
+            <a
               href="https://www.google.com/maps/search/?api=1&query=Plot+No+-895M,+khata+No-62,+SUBHANPUR+KHEKRA+BAGHPAT+UTTAR+PRADESH+-+201102"
               target="_blank"
               rel="noopener noreferrer"
@@ -340,7 +340,7 @@ export default function Layout() {
             </div>
             <div>
               <h3 className="font-display font-semibold text-stone-100 mb-3 text-lg">Contact Us</h3>
-              <a 
+              <a
                 href="https://www.google.com/maps/search/?api=1&query=Plot+No+-895M,+khata+No-62,+SUBHANPUR+KHEKRA+BAGHPAT+UTTAR+PRADESH+-+201102"
                 target="_blank"
                 rel="noopener noreferrer"
